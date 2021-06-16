@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Landing Page Reveal Animation</title>
     <link rel="stylesheet" href="resources/css/style.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js"></script>
     <script src="https://unpkg.com/ionicons@5.2.3/dist/ionicons.js"></script>
   </head>
@@ -54,80 +55,18 @@
         </div>
       </div>
     </div>
+
+    <!-- img hover effect -->
+    <div class="cursor"></div>
+    <div class="cursor-follower"></div>
+    <div id="wrapper">
+      <div class="portfolio-item">
+        <div class="portfolio-thumb">
+          <img src="resources/img/image.jpg" alt="" />
+        </div>
+      </div>
+    </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
-    <script>
-      function animate_text(text) {
-        var textWrapper = document.querySelector(text);
-        textWrapper.innerHTML = textWrapper.textContent.replace(
-          /\S/g,
-          "<span class='letter'>$&</span>"
-        );
-
-        anime.timeline().add({
-          targets: text + " .letter",
-          translateY: [200, 0],
-          translateZ: 0,
-          opacity: [0, 1],
-          easing: "easeOutExpo",
-          duration: 2000,
-          delay: (el, i) => 4800 + 50 * i,
-        });
-      }
-      animate_text(".header-1");
-      animate_text(".header-2");
-
-      TweenMax.to(".wrapper", 2, {
-        top: "-100%",
-        ease: Expo.easeInOut,
-        delay: 3.6,
-      });
-
-      var tl = new TimelineMax();
-
-      tl.from(".loader", 1.6, {
-        scaleY: "0%",
-        y: 80,
-        ease: Expo.easeInOut,
-        delay: 1,
-        transformOrigin: "50% 100%",
-      });
-
-      tl.to(".loader", 1.6, {
-        height: "20vh",
-        scaleY: "0%",
-        ease: Expo.easeInOut,
-        transformOrigin: "0% -100%",
-      });
-
-      TweenMax.to(".box", 2.4, {
-        y: "-100%",
-        ease: Expo.easeInOut,
-        delay: 3.8,
-      });
-
-      var tl = new TweenMax.staggerFrom(
-        ".menu > div",
-        2,
-        {
-          opacity: 0,
-          y: 30,
-          ease: Expo.easeInOut,
-          delay: 4.2,
-        },
-        0.1
-      );
-
-      var tl = new TweenMax.staggerFrom(
-        ".hero-container > div",
-        2,
-        {
-          opacity: 0,
-          y: 30,
-          ease: Expo.easeInOut,
-          delay: 4.2,
-        },
-        0.1
-      );
-    </script>
+    <script src="resources/js/index.js"></script>
   </body>
 </html>
